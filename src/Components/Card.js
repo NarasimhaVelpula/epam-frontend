@@ -5,9 +5,20 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import FormDialog from './InterestDialog';
 
 
 export default function OutlinedCard(props) {
+  const [open, setOpen] = React.useState(props.open);
+    const [postId,setPostId]=React.useState(null)
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
     const card = (
         <React.Fragment>
@@ -34,8 +45,9 @@ export default function OutlinedCard(props) {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">ShowInterest</Button>
+            <Button size="small" onClick={handleClickOpen}>ShowInterest</Button>
           </CardActions>
+          <FormDialog open={open} postId={props.property._id} handleClose={handleClose}/>
         </React.Fragment>
       );
 

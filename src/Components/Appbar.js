@@ -24,7 +24,11 @@ const ResponsiveAppBar = () => {
   };
   
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (e) => {
+    console.log(e)
+    if(e==="Create Post"){
+      navigate('/createPost')
+    }
     setAnchorElNav(null);
   };
 
@@ -80,13 +84,13 @@ const ResponsiveAppBar = () => {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={()=>{handleCloseNavMenu(page)}} >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -115,7 +119,7 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={()=>{handleCloseNavMenu(page)}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}

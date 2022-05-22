@@ -19,6 +19,8 @@ function Home() {
                 console.log("something is wrong")
             })
         },[])
+
+    
   return (
     <>
         <ResponsiveAppBar />
