@@ -29,6 +29,9 @@ const ResponsiveAppBar = () => {
     if(e==="Create Post"){
       navigate('/createPost')
     }
+    else{
+      navigate('/history')
+    }
     setAnchorElNav(null);
   };
 

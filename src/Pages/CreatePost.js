@@ -5,12 +5,13 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import React from 'react'
 import ResponsiveAppBar from '../Components/Appbar'
 import useCheckAuthorized from './useCheckAuthorized'
+import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
   useCheckAuthorized()
   const [errorMessage, seterrorMessage] = React.useState("")
   const [loader,setLoader]=React.useState(false)
-
+  const navigate=useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
      const data = new FormData(event.currentTarget);
@@ -117,6 +118,8 @@ function CreatePost() {
         >
           Add Property
         </LoadingButton>
+      <br />
+        <Button onClick={()=>{navigate('/')}}>Back To Home</Button>
           </Box>
     </Container>
    </>
